@@ -172,13 +172,11 @@ Dans RViz :
 
 ### RViz 2 — Modèle visuel (meshes STL)
 
-> *(à remplacer par votre capture)*
 
 ![RViz model](docs/screenshots/rviz_model.png)
 
 ### RViz 2 — Représentation des collisions
 
-> *(à remplacer par votre capture)*
 
 ![Collision shapes](docs/screenshots/rviz_collision.png)
 
@@ -186,7 +184,6 @@ Dans RViz :
 
 ### MoveIt 2 — Planification de trajectoire
 
-> *(à remplacer par votre capture)*
 
 ![MoveIt planning](docs/screenshots/moveit_planning.png)
 
@@ -205,8 +202,6 @@ Dans RViz :
 | 5 | **`gripper_left` ne suivait pas `gripper_right`** | Le tag `<mimic>` absent du joint5 | Ajout de `<mimic joint="joint4" multiplier="-1"/>` dans la définition de `joint5` |
 | 6 | **Fixed frame TF introuvable dans RViz** | Pas de lien `world` déclaré | Ajout d'un lien fictif `world` et d'un joint `world_fixed` de type `fixed` vers `base_link` |
 | 7 | **Bras mal orienté / posture incorrecte** | Les axes de rotation des joints2 et joint3 étaient sur X au lieu de Y | Correction en `<axis xyz="0 1 0"/>` pour les joints de tangage du bras |
-| 8 | **SRDF non généré par Setup Assistant** | Environnement virtuel sans GPU, Setup Assistant difficile à lancer | Rédaction manuelle du SRDF avec les groupes `arm` et `gripper`, désactivation des collisions adjacentes |
-
 ---
 
 ## Structure du dépôt

@@ -12,14 +12,13 @@
 
   <!-- WORLD -->
   <link name="world"/>
-
   <joint name="world_fixed" type="fixed">
     <parent link="world"/>
-    <child  link="base_link"/>
+    <child link="base_link"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
 
-  <!-- BASE_LINK -->
+  <!-- BASE_LINK : socle fixe -->
   <link name="base_link">
     <visual>
       <origin rpy="0 0 0" xyz="-0.5 -0.5 0"/>
@@ -31,9 +30,7 @@
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0.015"/>
-      <geometry>
-        <cylinder radius="0.07" length="0.03"/>
-      </geometry>
+      <geometry><cylinder radius="0.07" length="0.03"/></geometry>
     </collision>
     <inertial>
       <mass value="0.5"/>
@@ -42,7 +39,7 @@
     </inertial>
   </link>
 
-  <!-- BASE_PLATE -->
+  <!-- BASE_PLATE : plateau tournant -->
   <link name="base_plate">
     <visual>
       <origin rpy="0 0 0" xyz="-0.39 -0.39 -0.56"/>
@@ -54,9 +51,7 @@
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.05" length="0.02"/>
-      </geometry>
+      <geometry><cylinder radius="0.05" length="0.02"/></geometry>
     </collision>
     <inertial>
       <mass value="0.2"/>
@@ -65,10 +60,10 @@
     </inertial>
   </link>
 
-  <!-- joint1 : base_link -> base_plate, hauteur 3.07cm -->
+  <!-- joint1 : rotation Z, hauteur 3.07cm -->
   <joint name="joint1" type="revolute">
     <parent link="base_link"/>
-    <child  link="base_plate"/>
+    <child link="base_plate"/>
     <origin rpy="0 0 0" xyz="0 0 0.0307"/>
     <axis xyz="0 0 1"/>
     <limit lower="${-PI}" upper="${PI}" effort="50" velocity="1.0"/>
@@ -86,9 +81,7 @@
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0.04"/>
-      <geometry>
-        <box size="0.03 0.03 0.08"/>
-      </geometry>
+      <geometry><box size="0.03 0.03 0.08"/></geometry>
     </collision>
     <inertial>
       <mass value="0.15"/>
@@ -97,12 +90,12 @@
     </inertial>
   </link>
 
-  <!-- joint2 : base_plate -> forward_drive_arm, hauteur 3.5cm -->
+  <!-- joint2 : rotation Y, hauteur 3.5cm -->
   <joint name="joint2" type="revolute">
     <parent link="base_plate"/>
-    <child  link="forward_drive_arm"/>
+    <child link="forward_drive_arm"/>
     <origin rpy="0 0 0" xyz="0 0 0.035"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="0 1 0"/>
     <limit lower="${-PI/2}" upper="${PI/2}" effort="30" velocity="1.0"/>
   </joint>
 
@@ -117,24 +110,22 @@
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="0 ${PI/2} 0" xyz="0.04 0 0"/>
-      <geometry>
-        <box size="0.08 0.03 0.03"/>
-      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.04"/>
+      <geometry><box size="0.03 0.03 0.08"/></geometry>
     </collision>
     <inertial>
       <mass value="0.15"/>
-      <inertia ixx="0.0001" ixy="0" ixz="0"
-               iyy="0.0003" iyz="0" izz="0.0003"/>
+      <inertia ixx="0.0003" ixy="0" ixz="0"
+               iyy="0.0003" iyz="0" izz="0.0001"/>
     </inertial>
   </link>
 
-  <!-- joint3 : forward_drive_arm -> horizontal_arm, hauteur 8cm -->
+  <!-- joint3 : rotation Y, hauteur 8cm -->
   <joint name="joint3" type="revolute">
     <parent link="forward_drive_arm"/>
-    <child  link="horizontal_arm"/>
+    <child link="horizontal_arm"/>
     <origin rpy="0 0 0" xyz="0 0 0.08"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="0 1 0"/>
     <limit lower="${-PI/2}" upper="${PI/2}" effort="30" velocity="1.0"/>
   </joint>
 
@@ -150,9 +141,7 @@
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size="0.04 0.04 0.05"/>
-      </geometry>
+      <geometry><box size="0.04 0.04 0.05"/></geometry>
     </collision>
     <inertial>
       <mass value="0.1"/>
@@ -161,78 +150,4 @@
     </inertial>
   </link>
 
-  <!-- joint_claw : horizontal_arm -> claw_support, distance 8.2cm -->
-  <joint name="joint_claw" type="revolute">
-    <parent link="horizontal_arm"/>
-    <child  link="claw_support"/>
-    <origin rpy="0 0 0" xyz="0.082 0 0"/>
-    <axis xyz="0 0 1"/>
-    <limit lower="${-PI/2}" upper="${PI/2}" effort="20" velocity="1.0"/>
-  </joint>
-
-  <!-- GRIPPER_RIGHT -->
-  <link name="gripper_right">
-    <visual>
-      <origin rpy="0 0 -${PI/2}" xyz="-0.1 0.5 -0.1"/>
-      <geometry>
-        <mesh filename="package://robot_arm_description/meshes/right_finger.stl"
-              scale="0.01 0.01 0.01"/>
-      </geometry>
-      <material name="blue"/>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0.02 0"/>
-      <geometry>
-        <box size="0.01 0.04 0.02"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.03"/>
-      <inertia ixx="0.00001" ixy="0" ixz="0"
-               iyy="0.00001" iyz="0" izz="0.00001"/>
-    </inertial>
-  </link>
-
-  <!-- joint4 : prismatique gripper droit -->
-  <joint name="joint4" type="prismatic">
-    <parent link="claw_support"/>
-    <child  link="gripper_right"/>
-    <origin rpy="0 0 0" xyz="0.022 0 0.01"/>
-    <axis xyz="1 0 0"/>
-    <limit lower="0.0" upper="0.022" effort="10" velocity="0.2"/>
-  </joint>
-
-  <!-- GRIPPER_LEFT -->
-  <link name="gripper_left">
-    <visual>
-      <origin rpy="0 0 -${PI/2}" xyz="-0.04 0.5 -0.1"/>
-      <geometry>
-        <mesh filename="package://robot_arm_description/meshes/left_finger.stl"
-              scale="0.01 0.01 0.01"/>
-      </geometry>
-      <material name="blue"/>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0.02 0"/>
-      <geometry>
-        <box size="0.01 0.04 0.02"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.03"/>
-      <inertia ixx="0.00001" ixy="0" ixz="0"
-               iyy="0.00001" iyz="0" izz="0.00001"/>
-    </inertial>
-  </link>
-
-  <!-- joint5 : prismatique gripper gauche (mimic) -->
-  <joint name="joint5" type="prismatic">
-    <parent link="claw_support"/>
-    <child  link="gripper_left"/>
-    <origin rpy="0 0 0" xyz="-0.022 0 0.01"/>
-    <axis xyz="1 0 0"/>
-    <limit lower="-0.022" upper="0.0" effort="10" velocity="0.2"/>
-    <mimic joint="joint4" multiplier="-1"/>
-  </joint>
-
-</robot>
+  <!-- joint_claw : rotation Z,

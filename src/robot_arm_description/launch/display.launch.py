@@ -5,10 +5,8 @@ from launch.substitutions import Command
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 
-
 def generate_launch_description():
     pkg_dir = get_package_share_directory('robot_arm_description')
-
     xacro_file = os.path.join(pkg_dir, 'urdf', 'robot_arm.urdf.xacro')
     rviz_config = os.path.join(pkg_dir, 'config', 'robot_arm.rviz')
 
@@ -27,6 +25,12 @@ def generate_launch_description():
         executable='joint_state_publisher_gui',
         name='joint_state_publisher_gui',
         output='screen',
+        parameters=[{
+            'zeros': {
+                'joint2': -1.57,
+                'joint3':  1.57,
+            }
+        }],
     )
 
     rviz_node = Node(
