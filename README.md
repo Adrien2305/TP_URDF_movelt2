@@ -29,17 +29,7 @@ world (fixe)
 - Intégration dans **RViz 2** avec visualisation des TF et animation via `joint_state_publisher_gui`
 - Génération du package **MoveIt 2** avec groupes cinématiques, SRDF, solveur KDL et planificateur OMPL
 
-### Dimensions clés (extraites du sujet)
 
-| Transition | Distance |
-|---|---|
-| `base_link` → `base_plate` | 3.07 cm |
-| `base_plate` → `forward_drive_arm` | 3.5 cm |
-| `forward_drive_arm` → `horizontal_arm` | 8 cm |
-| `horizontal_arm` → `claw_support` | 8.2 cm |
-| Ouverture max de la pince | 2 × 2.2 cm |
-
----
 
 ## 2. Justification du choix Xacro vs URDF pur
 
@@ -60,21 +50,7 @@ world (fixe)
 
 ---
 
-## 3. Hypothèses sur les masses, inerties et limites articulaires
-
-### Masses estimées
-
-Les masses ont été estimées en considérant que le bras est fabriqué en **plastique PLA** (densité ≈ 1.24 g/cm³), taille réelle d'un bras hobby de bureau.
-
-| Lien | Masse (kg) | Forme approx. utilisée |
-|---|---|---|
-| `base_link` | 0.50 | Cylindre ø14 cm, h=3 cm |
-| `base_plate` | 0.20 | Cylindre ø10 cm, h=2 cm |
-| `forward_drive_arm` | 0.15 | Boîte 3×8×3 cm |
-| `horizontal_arm` | 0.15 | Boîte 8×3×3 cm |
-| `claw_support` | 0.10 | Boîte 4×4×5 cm |
-| `gripper_right` | 0.03 | Boîte 1×4×2 cm |
-| `gripper_left` | 0.03 | Boîte 1×4×2 cm |
+## 3. Hypothèses sur les inerties et limites articulaires
 
 ### Inerties
 
