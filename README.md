@@ -115,26 +115,12 @@ sudo apt install -y \
   ros-humble-rviz2
 ```
 
-### Cloner le dépôt
-
-```bash
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws/src
-git clone https://github.com/<votre-username>/robot_arm_ros2.git
-```
-
-### Installer les dépendances ROS
-
-```bash
-cd ~/ros2_ws
-rosdep install --from-paths src --ignore-src -r -y
-```
 
 ### Compiler
 
 ```bash
 cd ~/ros2_ws
-colcon build --symlink-install
+colcon build 
 ```
 
 ### Sourcer l'environnement
@@ -261,6 +247,4 @@ robot_arm_ros2/
 
 ---
 
-## Licence
 
-Apache 2.0
