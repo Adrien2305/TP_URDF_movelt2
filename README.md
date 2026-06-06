@@ -144,30 +144,9 @@ Dans RViz :
 
 ---
 
-## 6. Captures d'écran
-
-### RViz 2 — Modèle visuel (meshes STL)
 
 
-![RViz model](docs/screenshots/rviz_model.png)
-
-### RViz 2 — Représentation des collisions
-
-
-![Collision shapes](docs/screenshots/rviz_collision.png)
-
-*Géométries de collision simplifiées : cylindres pour le socle et la base_plate, boîtes pour les bras et la pince.*
-
-### MoveIt 2 — Planification de trajectoire
-
-
-![MoveIt planning](docs/screenshots/moveit_planning.png)
-
-*Planification RRTConnect entre la pose `home` et une pose cible. La trajectoire est affichée en orange dans RViz.*
-
----
-
-## 7. Difficultés rencontrées et solutions apportées
+## 6. Difficultés rencontrées et solutions apportées
 
 | # | Difficulté | Cause | Solution |
 |---|---|---|---|

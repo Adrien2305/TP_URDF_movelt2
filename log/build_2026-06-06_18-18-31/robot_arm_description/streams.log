@@ -1,0 +1,6 @@
+[0.035s] Invoking command in '/home/adrien/robot_arm_ros2/robot_arm_ws/build/robot_arm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/adrien/robot_arm_ros2/robot_arm_ws/build/robot_arm_description -- -j1 -l1
+[0.278s] [0mCMake Error: The current CMakeCache.txt directory /home/adrien/robot_arm_ros2/robot_arm_ws/build/robot_arm_description/CMakeCache.txt is different than the directory /home/adrien/robot_arm_ros2(1)/robot_arm_ws/build/robot_arm_description where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+[0.363s] [0mCMake Error: The source directory "/home/adrien/robot_arm_ros2(1)/robot_arm_ws/src/robot_arm_description" does not exist.
+[0.365s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.403s] gmake: *** [Makefile:226: cmake_check_build_system] Error 1
+[0.415s] Invoked command in '/home/adrien/robot_arm_ros2/robot_arm_ws/build/robot_arm_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/adrien/robot_arm_ros2/robot_arm_ws/build/robot_arm_description -- -j1 -l1

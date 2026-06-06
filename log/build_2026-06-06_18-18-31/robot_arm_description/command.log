@@ -1,0 +1,2 @@
+Invoking command in '/home/adrien/robot_arm_ros2/robot_arm_ws/build/robot_arm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/adrien/robot_arm_ros2/robot_arm_ws/build/robot_arm_description -- -j1 -l1
+Invoked command in '/home/adrien/robot_arm_ros2/robot_arm_ws/build/robot_arm_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/adrien/robot_arm_ros2/robot_arm_ws/build/robot_arm_description -- -j1 -l1
